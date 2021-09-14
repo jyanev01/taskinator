@@ -12,7 +12,8 @@
     <header>
         <h1 class="page-title">Taskinator</h1>
         <p>Click the button below to add a new task!</p>
-        <button class="btn">Add Task</button>
+        <button class="btn" id="save-task">Add Task</button>
+
     </header>
     
 <!--Main Element-->
@@ -25,7 +26,14 @@
         </section>
     </main>
     
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js">
+    var ButtonE1 = document.querySelector('button');
+
+    var tasksToDoE1 = document.querySelector("#tasks-to-do");
+    var taskItemE1 = document.createElement("li");
+    takItemE1.textContent = "hello";
+    tasksToDoE1.appendChild(taskItemE1);
+    </script>
 </body>
 
 <footer>
