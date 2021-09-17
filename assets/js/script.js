@@ -1,5 +1,5 @@
 
-formE1.addEventListener("submit",CreateTaskHandler);
+var formE1 = document.querySelector("#task-form");
 var taskToDoE1 = document.querySelector("#tasks-to-do");
 
 
