@@ -1,4 +1,4 @@
-
+var taskIdCounter = 0;
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 
@@ -27,12 +27,36 @@ var taskFormHandler = function (event) {
 
     // send it as an argument to crateTaskEl
     createTaskEl(taskDataObj);
+
+    var createTaskActions = function(TaskId) {
+        var actionContainerEl = document.createElement("div");
+        actionContainerEl.className = "task-actions";
+    };
+
+    // create edit button
+    var editButtonEl = document.createElement("button");
+    editButtonEl.textContent = "Edit";
+    editButtonEl.className = "btn edit-btn";
+    editButtonEl.setAttribute("data-task-id", TaskId);
+
+    actionContainerEl.appendChild(editButtonEl);
+
+    // create delete button
+    var deleteButtonEl = document.createElement("button");
+    deleteButtonEl.textContent = "Delete";
+    deleteButtonEl.className = "bttn delete-btn";
+    deleteButtonEl.setAttribute("data-task-id", TaskId);
+
+    actionContainerEl.appendChild(deleteButtonEl);
 };
 
 var createTaskEl = function(taskDataObj) {
     // create list item
     var listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
+
+    // add task id as a custom attribute
+    listItemEl.setAttribute("tata-task-id", taskIdCounter);
 
     // create div to hold task info and add to list item
     var taskInfoEl = document.createElement("div");
@@ -44,6 +68,9 @@ var createTaskEl = function(taskDataObj) {
 
     // add entire list itme to list
     tasksToDoEl.appendChild(listItemEl);
+
+    // increase task counter for next unique id
+    taskIdCounter++;
 };
 
 formEl.addEventListener("submit", taskFormHandler);
