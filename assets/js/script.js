@@ -41,7 +41,7 @@ var taskFormHandler = function(event) {
 var createTaskEl = function(taskDataObj) {
     var listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
-    listItemEl.setAttribute("tata-task-id", taskIdCounter);
+    listItemEl.setAttribute("data-task-id", taskIdCounter);
 
     // create div to hold task info and add to list item
     var taskInfoEl = document.createElement("div");
@@ -134,15 +134,15 @@ var taskStatusChangeHandler = function(event) {
     var taskId = event.target.getAttribute("data-task-id");
   
     var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
-  
+    
     // convert value to lower case
     var statusValue = event.target.value.toLowerCase();
-  
-    if (statusValue === "To Do") {
-      tasksToDoEl.appendChild(taskSelected);
-    } else if (statusValue === "In Progress") {
+
+    if (statusValue === "to do") {
+     tasksToDoEl.appendChild(taskSelected);
+    } else if (statusValue === "in progress") {
       tasksInProgressEl.appendChild(taskSelected);
-    } else if (statusValue === "Completed") {
+    } else if (statusValue === "completed") {
       tasksCompletedEl.appendChild(taskSelected);
     }
 };
